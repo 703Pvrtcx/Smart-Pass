@@ -1,0 +1,33 @@
+
+<ion-card  class = "user-item">
+  <ion-list >
+      <ion-item *ngFor = "let address of myBookList" class = "user-item">
+        <ion-grid>
+            <ion-row color ="danger">
+                <ion-col size ="4">
+                  Address:
+                </ion-col>
+                <ion-col size ="8">
+                  {{ address.name}}
+                </ion-col>
+                <ion-col size ="4">
+                  Location:
+                </ion-col>
+                <ion-col size ="8">
+                  {{ address.address}}
+                </ion-col>
+                <ion-col size ="4">
+                  Date:
+                </ion-col>
+                <ion-col size ="8">
+                  {{  address.createdDate | date  }}
+                </ion-col> 
+
+                  <ion-col size = "12">
+                    <ion-button expand="block"  color="warning" fill="outline"  size="small" (click)= "delete(address)" >Delete</ion-button>
+                </ion-col>
+            </ion-row>
+          </ion-grid>   
+          </ion-item>
+  </ion-list>
+</ion-card>
