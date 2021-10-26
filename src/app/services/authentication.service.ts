@@ -17,14 +17,12 @@ export class AuthenticationService {
     public afStore: AngularFirestore,
     public ngFireAuth: AngularFireAuth,
     public router: Router, 
-    //private share: ShareService,
   )
    {
      this.loggedIn = false;
 
    }
-  // Login in with email/password
-  
+ 
   SignIn(email, password) {
     
     return this.ngFireAuth.signInWithEmailAndPassword(email, password)
@@ -37,6 +35,14 @@ export class AuthenticationService {
   RegisterUser(email, password) {
     return this.ngFireAuth.createUserWithEmailAndPassword(email, password);
   }
+   // Email verification when new user register
+   async SendVerificationMail() {
+    return (await this.ngFireAuth.currentUser)?.sendEmailVerification()
+    .then(() => {
+      this.router.navigate(['verify-email']);
+    })
+  }
+
   // Sign in with Gmail
   GoogleAuth() {
     return this.AuthLogin(new firebase.auth.GoogleAuthProvider());

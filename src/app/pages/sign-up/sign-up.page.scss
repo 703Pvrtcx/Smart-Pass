@@ -1,0 +1,68 @@
+
+
+.sign-up-content {
+    --background: rgb(139, 135, 135) url('./../../../assets/facial.jpg') no-repeat center center / cover;
+
+    text-align: center;
+    --padding-bottom: 16px;
+    --padding-end: 16px;
+    --padding-start: 16px;
+    --padding-top: 16px;
+   
+    .auth-title {
+      font-weight: bold;
+      margin-bottom: 64px;
+      letter-spacing: 0.6px;
+      color: var(--ion-color-light);
+    }
+  
+    .social-auth-options {
+      .options-divider {
+            text-align: center;
+      }
+    }
+  
+    .inputs-list {
+         border-radius: 20px 20px 28px 28px;
+         opacity: 0.8;
+         .input-item {
+        --padding-start: 50px;
+        --padding-end: 0px;
+        --inner-padding-end: 0px;
+        opacity: 1;
+        --color: var(--ion-color-light);
+        // opacity: 0.3;
+           --background: linear-gradient(90deg, rgb(31, 57, 88) 0%,
+         rgb(41, 62, 95) 35%, rgb(254, 254, 255) 100%);
+      }
+    }
+  
+    .error-container {
+      .error-message {
+        margin: 16px 0px;
+        display: flex;
+        align-items: center;
+        color: var(--ion-color-danger);
+        font-size: 14px;
+  
+        ion-icon {
+          font-size: 16px;
+          padding-inline-end: 8px;
+        }
+      }
+    }
+  
+    .sign-up-btn {
+      margin: 16px 0px;
+    }
+  
+    .sign-in-btn-wrapper {
+      justify-content: flex-end;
+      align-items: center;
+  
+      .sign-in-btn {
+        --padding-end: 0px;
+      }
+    }
+  }
+  

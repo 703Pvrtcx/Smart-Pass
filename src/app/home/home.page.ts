@@ -16,6 +16,12 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage {
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
+
   promoSliders: any[];
   promoImagesLoaded:boolean=false;
 

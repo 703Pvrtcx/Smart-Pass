@@ -1,5 +1,9 @@
 class UserInfo {
 
+
+
+
+    
     key?: string; // ? optional
     name: string;
     description: any;

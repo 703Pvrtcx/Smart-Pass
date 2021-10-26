@@ -26,8 +26,6 @@ addlocation: boolean;
   constructor(private userInfo: UserInfoService,private asf: AngularFirestore,
     private mapDoa: MapboxService,public router: Router, private address: UserAddressService,
     ) { }
-
-
     ngOnInit() 
     {
       this.addlocation = false;
@@ -39,7 +37,6 @@ addlocation: boolean;
   getuser(){
     let userID = firebase.auth().currentUser.uid.toString();
     this.userInfo.getUserInfo(userID).subscribe(data => {
-
       this.userlist = data.map(e => {
         return{
           key: e.payload.doc.id,

@@ -1,113 +1,106 @@
-ion-content {
-   --background: linear-gradient(90deg, rgba(43,90,148,1) 0%,
-    rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
+
+
+/* Without setting height the slides will take up the height of the slide's content */
+ion-slides {
+    height: 90%;
   }
 
-fab-button{
-  --background-color: darkgoldenrod;
-  ion-icon{
-    --background-color: rgb(22, 21, 18);
-  }
-}
 
-  .slides {
-    background: #75c1fc;
-//    padding: 4px 10px 20px 10px;
-    border-radius: 0 0 28px 28px;
-  }
+// ion-content {
+//    --background: linear-gradient(90deg, rgb(96, 160, 238) 0%,
+//     rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
+//   }
 
-  img {
-    background: #b1cee4;
-    width: 300px;
-    height: 150px;
-   // padding: 10px 10px 10px 10px;
-  //  border-radius: 28px 28px 28px 28px;
-  }
+// fab-button{
+//   --background-color: darkgoldenrod;
+//   ion-icon{
+//     --background-color: rgb(22, 21, 18);
+//   }
+// }
 
-  ion-card {
+//   .slides {
+//     background: #75c1fc;
+//     border-radius: 0 0 28px 28px;
+//   }
 
-    --width: 100%;
-    //padding: 0;
-   // --width: 400px;
-    --box-shadow: none;
-   --border-radius: 14px;
-   color: black;
-   background-color: darkgoldenrod;
-    //border-color: rgb(107, 248, 25);
-   // --border-radius: 14px;
-    //padding: 14px;
-    //border-radius: 0 0 28px 28px;
-//    background: rgba(255,255,255,.8);
-// border-radius: 50px;
-    //align-items: center;
-    //justify-content: center;    
+//   img {
+//     background: #b1cee4;
+//     width: 300px;
+//     height: 150px;
+   
+//   }
+
+//   ion-card {
+
+//     --width: 100%;
+//     --box-shadow: none;
+//    --border-radius: 14px;
+//    color: black;
+//    background-color: darkgoldenrod;
     
-  }
+    
+//   }
 
-  .partco{
-    width: 50%;
-    padding: 0px;
-    margin: 0px;
-  }
-  .partcx{
-    width: 100%;
-    --padding-left: 10px;
-    --margin: 0px;
-    justify-content:stretch;    
-  }
+//   .partco{
+//     width: 50%;
+//     padding: 0px;
+//     margin: 0px;
+//   }
+//   .partcx{
+//     width: 100%;
+//     --padding-left: 10px;
+//     --margin: 0px;
+//     justify-content:stretch;    
+//   }
 
 
 
 
-  .box {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width:100%;
-    background-color:  #000000; 
-    align-content: space-between;
-    padding: 10px;
-  }
+//   .box {
+//     display: flex;
+//     flex-wrap: wrap;
+//     height: auto;
+//     width:100%;
+//     background-color:  #000000; 
+//     align-content: space-between;
+//     padding: 10px;
+//   }
   
-  .card{ 
-    height: auto;
-    width: 48%;
-    text-align: center;
-    text-justify: auto;
-    background-color: darkgoldenrod;
-    //background-color: rgb(172, 172, 172);
-    border-width: 1px 1px 5px 5px;
-    border-style: solid;
-    border-color: rgb(0, 0, 0);
-    margin: 2px;
-    border-radius: 15px 15px 15px 15px;
-    .img{
-      border-radius: 18px 18px 8px 8px;
-      height: 160px;
-      width: 100%;
-    }
-    .name{
-        color:rgb(3, 0, 0);
-        font-size: 16px;
-        font-weight: bold;
-    }
+//   .card{ 
+//     height: auto;
+//     width: 48%;
+//     text-align: center;
+//     text-justify: auto;
+//     background-color: darkgoldenrod;
+//     border-width: 1px 1px 5px 5px;
+//     border-style: solid;
+//     border-color: rgb(0, 0, 0);
+//     margin: 2px;
+//     border-radius: 15px 15px 15px 15px;
+//     .img{
+//       border-radius: 18px 18px 8px 8px;
+//       height: 160px;
+//       width: 100%;
+//     }
+//     .name{
+//         color:rgb(3, 0, 0);
+//         font-size: 16px;
+//         font-weight: bold;
+//     }
   
-    .desc{
-      color:rgb(3, 0, 0);
-        font-size: 16px;color:rgb(3, 0, 0);
-        font-weight: bold;
-        text-align: left;
-        padding-left: 10px;
-    }
-    .price{
-      color:rgb(255, 0, 0);
-        font-size: 18px;
-        font-weight: bold;
-        text-align: left;
-        padding-left: 10px;
-      }
-  
-  
-  
-  }
+//     .desc{
+//       color:rgb(3, 0, 0);
+//         font-size: 16px;color:rgb(3, 0, 0);
+//         font-weight: bold;
+//         text-align: left;
+//         padding-left: 10px;
+//     }
+//     .price{
+//       color:rgb(255, 0, 0);
+//         font-size: 18px;
+//         font-weight: bold;
+//         text-align: left;
+//         padding-left: 10px;
+//       }
+//   }
   
