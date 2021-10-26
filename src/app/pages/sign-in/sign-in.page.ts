@@ -5,6 +5,7 @@ import { FormsModule, FormBuilder,FormControl, ReactiveFormsModule, FormGroup, V
 import { AlertController, ModalController, ToastController,LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthenticationService } from 'src/app/services/User-side/authentication.service';
+import { take } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -46,12 +47,7 @@ export class SignInPage implements OnInit {
   ngOnInit() {
   }
   signInWithEmail() {
-    this.authService.SignIn(this.signInForm.value['email'], this.signInForm.value['password'])
-    .then((res) => {
-      window.alert("Logged in successfully");
-    })
-    .catch(error => {
-      this.submitError = error.message;
-    });
+    this.authService.SignIn(this.signInForm.value['email'], this.signInForm.value['password'])  
   }
+  
 }

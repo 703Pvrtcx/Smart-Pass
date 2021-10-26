@@ -89,13 +89,13 @@ export class SignUpPage implements OnInit {
   signUpWithEmail() {
     this.presentLoading();
           // this.user.id = firebase.auth()
-          this.user.firstname = this.signUpForm.value['firstname'],
-          this.user.lastname = this.signUpForm.value['lastname'],
-          this.user.email = this.signUpForm.value['email'],
-          this.user.roleId = 3,
-          this.user.gender = "Male"
-          this.user.phone = "071 1515 886",
-         this.authService.RegisterUser(this.signUpForm.value['email'], this.signUpForm.value['password'],this.user)
+          // this.user.firstname = this.signUpForm.value['firstname'],
+          // this.user.lastname = this.signUpForm.value['lastname'],
+          // this.user.email = this.signUpForm.value['email'],
+          // this.user.roleId = 3,
+          // this.user.gender = "Male"
+          // this.user.phone = "071 1515 886",
+         this.authService.RegisterUser(this.signUpForm.value['email'], this.signUpForm.value['password'])
           .then(() => {
           // this.userService.createUser(this.user);
           this.loadingCtrl.dismiss();

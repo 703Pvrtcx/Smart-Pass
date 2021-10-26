@@ -16,7 +16,7 @@ export class DashboardPage implements OnInit {
   ngOnInit() {
     let userID = firebase.auth().currentUser.uid.toString();
    
-    console.log(this.userService.readUser(userID)); 
+    
   }
 
 }

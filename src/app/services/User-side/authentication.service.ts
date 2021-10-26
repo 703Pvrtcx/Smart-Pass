@@ -42,8 +42,8 @@ export class AuthenticationService {
     })
   }
   // Register user with email/password
-  RegisterUser(email, password,user) {
-    this.user = user;
+  RegisterUser(email, password) {
+  
     return this.ngFireAuth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
      this.SetUserData(result.user);
@@ -96,13 +96,7 @@ export class AuthenticationService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      
       displayName: user.displayName,
-      firstname: this.user.firstname,
-      lastname: this.user.lastname,
-      gender: this.user.gender,
-      roleId: this.user.roleId,
-
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
       created_at: Date.now().toString(),
@@ -111,10 +105,6 @@ export class AuthenticationService {
     return userRef.set(userData, {
       merge: true
     })
-  }
-  getUserData(uid){
-    const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${uid}`);
-    return userRef;
   }
   // Sign-out 
   SignOut() {
