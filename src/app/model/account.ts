@@ -1,20 +1,23 @@
 class Account {
-    id: string;
+    userID: string;
+    email:string;
     firstname:string;
     lastname: string;
-    email:string;
-    phone:string;
-    gender:string;  
     roleId: number;
-    createdDate: string;
+    gender:string; 
+    phone:string;
+    displayName: string;
+    photoURL: string;
+    created_at: Date;
+    updated_at: Date;
 
     constructor(){
         this.firstname = "";
         this.lastname = "";
         this.gender = "";
-        this.createdDate = Date.now().toString();
+        this.created_at = new Date;
         this.roleId = 3;
-        this.phone = "012 874 8743";
+        this.phone = "012 000 0000";
     }
 }
 

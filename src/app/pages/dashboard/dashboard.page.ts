@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ManagementService } from '../../services/Admin/management.service';
+import { AuthenticationService } from 'src/app/services/User-side/authentication.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -10,13 +11,13 @@ import { ManagementService } from '../../services/Admin/management.service';
 })
 export class DashboardPage implements OnInit {
 
-  constructor(private userService: ManagementService) { 
+  user: any;
+  constructor(private userService: ManagementService,
+    private authService:AuthenticationService) { 
    }
 
   ngOnInit() {
-    let userID = firebase.auth().currentUser.uid.toString();
-   
-    
+    this.user = this.authService.userData;
   }
 
 }

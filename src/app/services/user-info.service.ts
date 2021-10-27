@@ -5,7 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class UserInfoService {
-  collectionName = 'Users';
+  collectionName = 'userProfile';
   
   constructor(private asf: AngularFirestore) { }
 
@@ -22,19 +22,19 @@ export class UserInfoService {
   }
   createUser(user:Account){
     this.asf.collection(this.collectionName).add(user).then(() => {
-      window.alert('Account added successfully');
+      window.alert(user.email + ' account has added successfully');
     }).catch(err => { 
       window.alert(err.message + ' account was unable to be added!');
     })
   }
   readUser(userID){
-    return this.asf.collection(this.collectionName, ref => ref.where('uid','==', userID)).snapshotChanges();
+    return this.asf.collection(this.collectionName, ref => ref.where('userID','==', userID)).snapshotChanges();
   }
   read_students() {
     return this.asf.collection(this.collectionName).snapshotChanges();
   }
   update_student(recordID, record) {
-    this.asf.doc(this.collectionName + '/' + recordID).update(record);
+    this.asf.doc(this.collectionName +'/'+ recordID).update(record);
   }
   delete_student(record_id) {
     this.asf.doc(this.collectionName + '/' + record_id).delete();

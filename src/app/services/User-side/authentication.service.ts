@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 import { User } from "./user";
 import { now } from '@ionic/core/dist/types/utils/helpers';
 import { delay } from 'rxjs/operators';
+import { UserInfoService } from '../user-info.service';
 
 
 @Injectable({
@@ -13,12 +14,12 @@ import { delay } from 'rxjs/operators';
 })
 export class AuthenticationService {
   userData: any;
-  user = {} as Account;
   constructor(
     public afStore: AngularFirestore,
     public ngFireAuth: AngularFireAuth,
     public router: Router,  
-    public ngZone: NgZone 
+    public ngZone: NgZone ,
+    private userService: UserInfoService,
   ) {
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
@@ -35,23 +36,46 @@ export class AuthenticationService {
   SignIn(email, password) {
     return this.ngFireAuth.signInWithEmailAndPassword(email, password)
     .then((result) => {
-      this.SetUserData(result.user);
-      this.router.navigate(['dashboard']); 
+
+    this.SetUserData(result.user);
+    this.router.navigate(['dashboard']); 
     }).catch((error) => {
       window.alert(error.message);
     })
   }
   // Register user with email/password
   RegisterUser(email, password) {
-  
     return this.ngFireAuth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
-     this.SetUserData(result.user);
-     this.SendVerificationMail();
+
+
+      this.SetUserData(result.user);
+      this.SendVerificationMail();
     }).catch((error) => {
       window.alert(error.message)
     })
   }
+
+  SetUserData(user) {
+
+    const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${user.uid}`);
+   
+    const userData: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      created_at: new Date(),
+    }
+    return userRef.set(userData, {
+      merge: true
+    })
+  }
+  getUser(uid){
+    return this.afStore.collection('users',ref=>ref.where('uid','==',uid));
+  }
+
   // Email verification when new user register
   async SendVerificationMail() {
     return (await this.ngFireAuth.currentUser)?.sendEmailVerification()
@@ -91,21 +115,23 @@ export class AuthenticationService {
     })
   }
   // Store user in localStorage
-  SetUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${user.uid}`);
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      created_at: Date.now().toString(),
-      verified_at: Date.now().toString(),
-    }
-    return userRef.set(userData, {
-      merge: true
-    })
-  }
+  
+  // SetUserData(user) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${user.uid}`);
+  //   const userData: User = {
+      
+  //     uid: user.uid,
+  //     email: user.email,
+  //     displayName: user.displayName,
+  //     photoURL: user.photoURL,
+  //     emailVerified: user.emailVerified,
+  //     created_at: Date.now().toString(),
+  //     verified_at: Date.now().toString(),
+  //   }
+  //   return userRef.set(userData, {
+  //     merge: true
+  //   })
+  // }
   // Sign-out 
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {

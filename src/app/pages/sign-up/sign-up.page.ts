@@ -7,6 +7,7 @@ import { UserInfoService } from 'src/app/services/user-info.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/User-side/authentication.service';
+import { User } from '../../services/User-side/user';
 
 
 @Component({
@@ -88,16 +89,10 @@ export class SignUpPage implements OnInit {
   }
   signUpWithEmail() {
     this.presentLoading();
-          // this.user.id = firebase.auth()
-          // this.user.firstname = this.signUpForm.value['firstname'],
-          // this.user.lastname = this.signUpForm.value['lastname'],
-          // this.user.email = this.signUpForm.value['email'],
-          // this.user.roleId = 3,
-          // this.user.gender = "Male"
-          // this.user.phone = "071 1515 886",
-         this.authService.RegisterUser(this.signUpForm.value['email'], this.signUpForm.value['password'])
-          .then(() => {
-          // this.userService.createUser(this.user);
+    this.authService.RegisterUser(
+      this.signUpForm.value['email'],
+      this.signUpForm.value['password'])
+        .then(res => {
           this.loadingCtrl.dismiss();
   })
   .catch(error => {

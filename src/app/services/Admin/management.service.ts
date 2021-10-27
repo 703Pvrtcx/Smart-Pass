@@ -20,7 +20,6 @@ export class ManagementService {
   readUser(userID){
     //return this.asf.collection(this.collectionName).doc(userID).valueChanges();
     return this.asf.collection(this.collectionName, ref => ref.where('uid','==', userID)).snapshotChanges();
-
   }
   read_users() {
     return this.asf.collection(this.collectionName).snapshotChanges();
